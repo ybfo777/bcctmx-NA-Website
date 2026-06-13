@@ -48,22 +48,6 @@ const referenceData = {
         ['0.1', '0.0079', '0.003', '0.0261', '3,563'],
       ],
     },
-    imperial: {
-      headers: [
-        'Diameter (in)',
-        'Cross Sectional Area (in²)',
-        'Nominal Copper Thickness (mil)',
-        'Weight (lb/1000 ft)',
-        'Max DC Resistance (Ω/1000 ft)',
-      ],
-      rows: [
-        ['0.315', '0.0778', '7.87', '112.08', '0.170'],
-        ['0.157', '0.0195', '3.94', '27.99', '0.679'],
-        ['0.079', '0.0049', '1.97', '7.01', '2.712'],
-        ['0.039', '0.0012', '0.98', '1.75', '10.85'],
-        ['0.016', '0.0002', '0.39', '0.28', '67.93'],
-      ],
-    },
   },
   ccs: {
     metric: {
@@ -106,25 +90,55 @@ const referenceData = {
         ['27', '0.36', '0.0108', '0.815', '804.0', '3.5'],
       ],
     },
-    imperial: {
-      headers: [
-        'AWG',
-        'Diameter (in)',
-        'Nominal Copper Thickness (mil)',
-        'Weight (lb/1000 ft)',
-        'Nominal DC Resistance (Ω/1000 ft)',
-        'ASTM Break Load (lbf)',
-      ],
-      rows: [
-        ['0',  '0.325', '9.75', '287.00', '0.468', '—'],
-        ['4',  '0.204', '6.13', '113.35', '1.183', '1,589'],
-        ['8',  '0.128', '3.85', '44.80',  '2.993', '628'],
-        ['12', '0.081', '2.42', '17.72',  '7.564', '251'],
-        ['20', '0.032', '0.96', '2.78',   '48.17', '40'],
-      ],
-    },
   },
 };
+
+function f(n, digits) {
+  // Format to `digits` significant figures, stripping trailing zeros
+  return parseFloat(n.toPrecision(digits)).toString();
+}
+
+function ccaImperial() {
+  const metricRows = referenceData.cca.metric.rows;
+  return {
+    headers: [
+      'Diameter (in)',
+      'Cross Sectional Area (in²)',
+      'Nominal Copper Thickness (mil)',
+      'Weight (lb/1000 ft)',
+      'Max DC Resistance (Ω/1000 ft)',
+    ],
+    rows: metricRows.map(([dia, area, thick, weight, res]) => [
+      f(parseFloat(dia) / 25.4, 4),
+      f(parseFloat(area) / 645.16, 4),
+      f(parseFloat(thick) * 39.3701, 4),
+      f(parseFloat(weight) * 0.671969, 4),
+      f(parseFloat(res) * 0.3048, 4),
+    ]),
+  };
+}
+
+function ccsImperial() {
+  const metricRows = referenceData.ccs.metric.rows;
+  return {
+    headers: [
+      'AWG',
+      'Diameter (in)',
+      'Nominal Copper Thickness (mil)',
+      'Weight (lb/1000 ft)',
+      'Nominal DC Resistance (Ω/1000 ft)',
+      'ASTM Break Load (lbf)',
+    ],
+    rows: metricRows.map(([awg, dia, thick, weight, res, breakload]) => [
+      awg,
+      f(parseFloat(dia) / 25.4, 4),
+      f(parseFloat(thick) * 39.3701, 4),
+      f(parseFloat(weight) * 0.671969, 4),
+      f(parseFloat(res) * 0.3048, 4),
+      breakload === '—' ? '—' : String(Math.round(parseFloat(breakload) * 2.20462)),
+    ]),
+  };
+}
 
 function clamp(value, min, max) {
   return Math.min(max, Math.max(min, value));
@@ -162,7 +176,12 @@ function renderReferenceTable(target, unit) {
     return;
   }
 
-  const dataset = referenceData[target]?.[unit];
+  let dataset;
+  if (unit === 'imperial') {
+    dataset = target === 'cca' ? ccaImperial() : ccsImperial();
+  } else {
+    dataset = referenceData[target]?.metric;
+  }
   if (!dataset) {
     return;
   }
