@@ -261,7 +261,7 @@ if (rfqSubmit) {
       `Contact information: ${get('contact_info')}`,
     ].join('\n');
 
-    const mailto = `mailto:info@baichuanchina.com?subject=${encodeURIComponent('BC Conductor Technology RFQ – CCA/CCS wire')}&body=${encodeURIComponent(body)}`;
+    const mailto = `mailto:info@baichuanchina.com?subject=${encodeURIComponent('BC Special Wire Co., LLC RFQ – CCA/CCS wire')}&body=${encodeURIComponent(body)}`;
     window.location.href = mailto;
   });
 }
