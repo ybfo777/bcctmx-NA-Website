@@ -226,8 +226,8 @@ unitToggleButtons.forEach((button) => {
   });
 });
 
-setUnitMode('cca', 'metric');
-setUnitMode('ccs', 'metric');
+setUnitMode('cca', 'imperial');
+setUnitMode('ccs', 'imperial');
 
 window.addEventListener('pointermove', (event) => {
   updatePointerVars(event.clientX, event.clientY);
