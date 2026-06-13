@@ -711,9 +711,9 @@ a {
 
 .reference-card table {
   width: 100%;
-  min-width: 600px;
+  min-width: 100%;
   border-collapse: collapse;
-  font-size: 0.9rem;
+  font-size: 0.75rem;
   transition:
     opacity 180ms ease,
     transform 180ms ease,
@@ -728,14 +728,15 @@ a {
 }
 
 .reference-card thead th {
-  padding: 13px 16px;
+  padding: 8px 10px;
   background: linear-gradient(180deg, #ff8a42, #f06d1c);
   color: #fff;
   text-align: left;
-  font-size: 0.72rem;
+  font-size: 0.65rem;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  white-space: nowrap;
+  letter-spacing: 0.06em;
+  white-space: normal;
+  word-break: break-word;
 }
 
 .reference-card thead th:first-child {
@@ -743,11 +744,12 @@ a {
 }
 
 .reference-card tbody td {
-  padding: 11px 16px;
+  padding: 7px 10px;
   border-top: 1px solid rgba(0, 0, 0, 0.07);
   color: rgba(0, 0, 0, 0.85);
   font-variant-numeric: tabular-nums;
-  white-space: nowrap;
+  white-space: normal;
+  word-break: break-word;
 }
 
 .reference-card tbody tr:nth-child(odd) td {
