@@ -248,11 +248,11 @@ if (rfqSubmit) {
     const get = (name) => (form.elements[name]?.value || '').trim() || '—';
 
     const body = [
-      'Hello BC Conductor Technology team,',
+      'Hello BC Wire Group team,',
       '',
       'Please review this RFQ and advise on pricing, lead time, and documentation availability.',
       '',
-      `Product family (CCA or CCS): ${get('product')}`,
+      `Product family : ${get('product')}`,
       `Diameter / AWG: ${get('diameter_awg')}`,
       `Conductivity / copper thickness target: ${get('conductivity')}`,
       `Quantity: ${get('quantity')}`,
