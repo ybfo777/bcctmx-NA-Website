@@ -77,7 +77,8 @@ a {
   height: 48px;
   object-fit: contain;
   flex: 0 0 auto;
-  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 16px rgba(0, 0, 0, 0.3));
+  mask-image: radial-gradient(circle at center, #000 0%, #000 70%, transparent 100%);
+  -webkit-mask-image: radial-gradient(circle at center, #000 0%, #000 70%, transparent 100%);
 }
 
 .brand-copy {
