@@ -623,23 +623,25 @@ a {
 }
 
 .other-products-section {
-  margin-top: 48px;
-  padding: 32px 24px;
-  border-radius: 28px;
-  background: rgba(255, 99, 71, 0.08);
-  border: 1px solid rgba(255, 99, 71, 0.2);
+  padding: clamp(72px, 7vw, 112px) clamp(20px, 4vw, 56px);
+  background: linear-gradient(180deg, #161616 0%, #101010 100%);
 }
 
 .other-products-section h3 {
-  margin: 8px 0 16px;
-  font-size: 1.8rem;
+  margin: 0 0 16px;
+  font-size: clamp(2rem, 4vw, 3.5rem);
   color: #ffffff;
+  line-height: 0.96;
+  letter-spacing: -0.04em;
+  font-weight: 800;
 }
 
 .other-products-section p {
-  margin: 0 0 20px;
-  color: rgba(255, 255, 255, 0.76);
-  line-height: 1.65;
+  margin: 0 0 24px;
+  max-width: 64ch;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.8;
+  font-size: 1.02rem;
 }
 
 .reference-section {
