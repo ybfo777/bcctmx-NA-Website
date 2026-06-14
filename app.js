@@ -144,21 +144,6 @@ function clamp(value, min, max) {
   return Math.min(max, Math.max(min, value));
 }
 
-function updatePointerVars(clientX, clientY) {
-  if (!hero) {
-    return;
-  }
-
-  const rect = hero.getBoundingClientRect();
-  const x = clamp(((clientX - rect.left) / rect.width) * 100, 0, 100);
-  const y = clamp(((clientY - rect.top) / rect.height) * 100, 0, 100);
-  const rotation = ((x - 50) * 0.04) + ((y - 50) * 0.02);
-
-  root.style.setProperty('--pointer-x', `${x}%`);
-  root.style.setProperty('--pointer-y', `${y}%`);
-  root.style.setProperty('--pointer-rot', rotation.toFixed(2));
-}
-
 function updateScrollVar() {
   if (!hero) {
     return;
@@ -229,17 +214,8 @@ unitToggleButtons.forEach((button) => {
 setUnitMode('cca', 'imperial');
 setUnitMode('ccs', 'imperial');
 
-window.addEventListener('pointermove', (event) => {
-  updatePointerVars(event.clientX, event.clientY);
-});
-
 window.addEventListener('scroll', updateScrollVar, { passive: true });
 window.addEventListener('resize', updateScrollVar);
-window.addEventListener('pointerleave', () => {
-  root.style.setProperty('--pointer-x', '50%');
-  root.style.setProperty('--pointer-y', '40%');
-  root.style.setProperty('--pointer-rot', '0');
-});
 
 const rfqSubmit = document.getElementById('rfq-submit');
 if (rfqSubmit) {
@@ -270,5 +246,4 @@ updateScrollVar();
 
 if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   root.style.setProperty('--scroll-progress', '0');
-  root.style.setProperty('--pointer-rot', '0');
 }
