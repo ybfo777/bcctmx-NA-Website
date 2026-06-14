@@ -624,7 +624,8 @@ a {
 
 .other-products-section {
   padding: clamp(72px, 7vw, 112px) clamp(20px, 4vw, 56px);
-  background: linear-gradient(180deg, #161616 0%, #101010 100%);
+  background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%);
+  scroll-margin-top: var(--anchor-offset);
 }
 
 .other-products-section h3 {
