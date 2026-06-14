@@ -168,24 +168,8 @@ a {
   gap: 0;
   overflow: hidden;
   isolation: isolate;
-  background:
-    linear-gradient(90deg, rgba(0, 0, 0, 0.82) 0%, rgba(0, 0, 0, 0.58) 38%, rgba(0, 0, 0, 0.08) 72%),
-    linear-gradient(180deg, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.46)),
-    url("./assets/hero-wire-macro.png");
-  background-size: cover;
-  background-position: center right;
-  background-attachment: fixed;
+  background: transparent;
   color: #fff;
-}
-
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(180deg, rgba(0, 0, 0, 0.3), transparent 16%, transparent 72%, rgba(0, 0, 0, 0.52)),
-    radial-gradient(circle at 50% 65%, rgba(0, 0, 0, 0.24), transparent 42%);
-  pointer-events: none;
 }
 
 .hero-copy {
