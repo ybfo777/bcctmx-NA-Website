@@ -338,7 +338,7 @@ a {
 }
 
 .section-products {
-  background: linear-gradient(180deg, #101010 0%, #171717 100%);
+  background: transparent;
 }
 
 .product-grid {
@@ -625,7 +625,7 @@ a {
 
 .other-products-section {
   padding: clamp(72px, 7vw, 112px) clamp(20px, 4vw, 56px);
-  background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%);
+  background: transparent;
   scroll-margin-top: var(--anchor-offset);
 }
 
@@ -763,9 +763,7 @@ a {
 }
 
 .section-applications {
-  background:
-    radial-gradient(circle at 20% 20%, rgba(255, 99, 71, 0.06), transparent 28%),
-    linear-gradient(180deg, #141414 0%, #1b1b1b 100%);
+  background: transparent;
 }
 
 .application-strip {
@@ -792,7 +790,7 @@ a {
 }
 
 .section-quality {
-  background: linear-gradient(180deg, #161616 0%, #101010 100%);
+  background: transparent;
 }
 
 .quality-grid {
@@ -887,9 +885,7 @@ a {
 }
 
 .section-contact {
-  background:
-    radial-gradient(circle at 70% 0%, rgba(255, 99, 71, 0.08), transparent 26%),
-    linear-gradient(180deg, #121212 0%, #0b0b0b 100%);
+  background: transparent;
 }
 
 .rfq-grid {
@@ -1026,9 +1022,7 @@ a {
 }
 
 .section-company {
-  background:
-    radial-gradient(circle at 50% 0%, rgba(255, 99, 71, 0.08), transparent 28%),
-    linear-gradient(180deg, #111111 0%, #0b0b0b 100%);
+  background: transparent;
 }
 
 .company-panel {
