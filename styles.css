@@ -157,6 +157,7 @@ a {
     url("./assets/hero-wire-macro.png");
   background-size: cover;
   background-position: center right;
+  background-attachment: fixed;
   color: #fff;
 }
 
