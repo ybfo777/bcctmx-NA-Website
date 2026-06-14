@@ -311,6 +311,32 @@ a {
 .section {
   padding: clamp(72px, 7vw, 112px) clamp(20px, 4vw, 56px);
   scroll-margin-top: var(--anchor-offset);
+  position: relative;
+  isolation: isolate;
+}
+
+.section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at var(--pointer-x) var(--pointer-y), rgba(255, 233, 201, 0.2), transparent 16%),
+    radial-gradient(circle at calc(var(--pointer-x) + 7%) calc(var(--pointer-y) + 8%), rgba(255, 99, 71, 0.12), transparent 20%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.01), transparent 34%);
+  mix-blend-mode: screen;
+  pointer-events: none;
+  opacity: 0.6;
+  z-index: 2;
+}
+
+.section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.15), transparent 30%, transparent 60%, rgba(0, 0, 0, 0.25));
+  pointer-events: none;
+  z-index: 1;
 }
 
 .section-head {
