@@ -144,6 +144,14 @@ function clamp(value, min, max) {
   return Math.min(max, Math.max(min, value));
 }
 
+function updatePointerVars(clientX, clientY) {
+  const x = clamp((clientX / window.innerWidth) * 100, 0, 100);
+  const y = clamp((clientY / window.innerHeight) * 100, 0, 100);
+
+  root.style.setProperty('--pointer-x', `${x}%`);
+  root.style.setProperty('--pointer-y', `${y}%`);
+}
+
 function updateScrollVar() {
   if (!hero) {
     return;
@@ -214,8 +222,16 @@ unitToggleButtons.forEach((button) => {
 setUnitMode('cca', 'imperial');
 setUnitMode('ccs', 'imperial');
 
+window.addEventListener('pointermove', (event) => {
+  updatePointerVars(event.clientX, event.clientY);
+});
+
 window.addEventListener('scroll', updateScrollVar, { passive: true });
 window.addEventListener('resize', updateScrollVar);
+window.addEventListener('pointerleave', () => {
+  root.style.setProperty('--pointer-x', '50%');
+  root.style.setProperty('--pointer-y', '40%');
+});
 
 const rfqSubmit = document.getElementById('rfq-submit');
 if (rfqSubmit) {

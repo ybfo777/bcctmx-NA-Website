@@ -9,6 +9,8 @@
   --line: rgba(0, 0, 0, 0.12);
   --surface: rgba(255, 255, 255, 0.84);
   --shadow: 0 28px 80px rgba(0, 0, 0, 0.2);
+  --pointer-x: 50%;
+  --pointer-y: 40%;
   --scroll-progress: 0;
   --anchor-offset: 112px;
 }
@@ -22,6 +24,7 @@ html {
   scroll-padding-top: var(--anchor-offset);
   background:
     linear-gradient(90deg, rgba(0, 0, 0, 0.82) 0%, rgba(0, 0, 0, 0.58) 38%, rgba(0, 0, 0, 0.08) 72%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.46)),
     url("./assets/hero-wire-macro.png");
   background-size: cover;
   background-position: center right;
@@ -36,10 +39,6 @@ body {
   overflow-x: hidden;
 }
 
-.page-shell {
-  width: 100%;
-}
-
 a {
   color: inherit;
   text-decoration: none;
@@ -49,6 +48,21 @@ a {
   width: 100%;
   position: relative;
   isolation: isolate;
+}
+
+.page-shell::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at var(--pointer-x) var(--pointer-y), rgba(255, 233, 201, 0.34), transparent 16%),
+    radial-gradient(circle at calc(var(--pointer-x) + 7%) calc(var(--pointer-y) + 8%), rgba(255, 99, 71, 0.2), transparent 20%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.015), transparent 34%);
+  mix-blend-mode: screen;
+  pointer-events: none;
+  transition: opacity 180ms ease;
+  opacity: 0.92;
+  z-index: 10;
 }
 
 .page-shell::after {
