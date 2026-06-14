@@ -1,0 +1,27 @@
+﻿# HERMES_TO_CODEX
+
+Project: C:\Users\ZEKUA\OneDrive\Documents\website
+Last updated by Hermes: 2026-06-13 09:44:43
+
+## Current task
+Verify the remaining in-page anchors (#products, #reference, #applications, #quality, #contact) on desktop and mobile against the current styles. If any still overlap the header or land awkwardly, patch styles.css minimally and regenerate only the necessary verification screenshots. Then write .hermes-codex/CODEX_TO_HERMES.md with the exact changes, verification results, and any remaining risks. If all anchors are clean already, do not change code; just report the verified anchors and note that no further fix was needed.
+
+## Context
+- Hermes is coordinating this project and will verify Codex's work through files, git diff, tests, screenshots, or other direct checks.
+- Codex Desktop should use the project files as the source of truth.
+- If requirements are unclear, write questions in CODEX_TO_HERMES.md instead of guessing.
+
+## Ground rules for Codex
+1. Work inside this project folder only unless explicitly told otherwise.
+2. Keep changes focused and reviewable.
+3. Do not overclaim business, compliance, certification, customer, security, or performance facts without evidence in the repo or explicit user instruction.
+4. Preserve existing data and user-created assets unless the task explicitly says to replace them.
+5. After working, update CODEX_TO_HERMES.md with exactly what changed and what you verified.
+
+## Codex reply requirements
+Please write your response to .hermes-codex/CODEX_TO_HERMES.md with:
+- Summary of changes
+- Files changed
+- Verification performed, including exact commands if any
+- Open questions / risks
+- Suggested next task for Hermes or the user
