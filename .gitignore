@@ -1,0 +1,33 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build artifacts
+dist/
+build/
+.cache/
+.parcel-cache/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+.vscode/settings.json
+*.swp
+*.swo
+
+# Logs
+*.log
+debug.log
+
+# Internal / dev-only files
+.claude/
+.hermes-codex/
+START_CODEX_DESKTOP.cmd
+hermes-codex-website-critique.md
