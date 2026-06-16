@@ -1192,7 +1192,8 @@ a {
   .detail-stats,
   .detail-columns,
   .spec-band,
-  .media-grid-2 {
+  .media-grid-2,
+  .reference-grid {
     grid-template-columns: 1fr;
   }
 }
@@ -1258,5 +1259,20 @@ a {
 
   .footer-links {
     gap: 12px;
+  }
+
+  .reference-card-head {
+    padding: 18px 16px 12px;
+  }
+
+  .reference-card thead th {
+    padding: 7px 6px;
+    font-size: 0.6rem;
+    letter-spacing: 0.03em;
+  }
+
+  .reference-card tbody td {
+    padding: 7px 6px;
+    font-size: 0.72rem;
   }
 }
